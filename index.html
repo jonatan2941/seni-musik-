@@ -1,1 +1,1275 @@
-selamat datang di neraka 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>SMART MUSIC CLASS · Learn, Play, Create & Perform</title>
+  <!-- Font & Ikon -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #6d28d9;
+      --primary-light: #8b5cf6;
+      --primary-soft: #ede9fe;
+      --accent: #ec4899;
+      --accent-soft: #fce7f3;
+      --teal: #14b8a6;
+      --amber: #f59e0b;
+      --dark: #1e1b2e;
+      --gray: #6b7280;
+      --bg: #f9f7ff;
+      --card: #ffffff;
+      --shadow: 0 10px 30px -10px rgba(109, 40, 217, 0.15);
+      --radius: 24px;
+      --radius-sm: 16px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== SMART TV OPTIMIZED ===== */
+    .app {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 16px 24px 40px;
+    }
+
+    /* Header */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+      border: 1px solid #ede9fe;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: white;
+      box-shadow: 0 6px 14px rgba(109, 40, 217, 0.3);
+    }
+
+    .logo-text h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gray);
+      letter-spacing: 0.4px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-tab {
+      padding: 10px 20px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s;
+      border: none;
+      background: transparent;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-tab i {
+      font-size: 1rem;
+    }
+
+    .nav-tab.active {
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .nav-tab:hover:not(.active) {
+      background: #f3f0fa;
+      color: var(--dark);
+    }
+
+    .user-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg);
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .user-badge i {
+      color: var(--primary);
+    }
+
+    /* Sections */
+    .section {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero / Dashboard home */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, #4c1d95, #7c3aed, #db2777);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      color: white;
+      box-shadow: 0 20px 30px -12px rgba(109, 40, 217, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card p {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card .btn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: #f3f0ff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-sm {
+      padding: 8px 18px;
+      font-size: 0.85rem;
+    }
+
+    .btn-primary-solid {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary-solid:hover {
+      background: #5b21b6;
+      transform: translateY(-2px);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-accent:hover {
+      background: #be185d;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid #ede9fe;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stat-card .stat-label {
+      font-size: 0.85rem;
+      color: var(--gray);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .stat-card .stat-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .stat-card .stat-icon {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    /* Modul Cards */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      color: var(--dark);
+    }
+
+    .section-title i {
+      color: var(--primary);
+      font-size: 1.6rem;
+    }
+
+    .modul-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .modul-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid #ede9fe;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modul-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary-light);
+      box-shadow: 0 20px 30px -12px rgba(109, 40, 217, 0.25);
+    }
+
+    .modul-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 14px;
+      color: white;
+    }
+
+    .bg-purple { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+    .bg-pink { background: linear-gradient(135deg, #ec4899, #db2777); }
+    .bg-teal { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+    .bg-amber { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .bg-blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+    .bg-indigo { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+    .bg-rose { background: linear-gradient(135deg, #f43f5e, #e11d48); }
+
+    .modul-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    .modul-card p {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    .modul-badge {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background: var(--primary-soft);
+      color: var(--primary);
+      padding: 2px 10px;
+      border-radius: 100px;
+    }
+
+    /* Games Grid */
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .game-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid #ede9fe;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .game-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .game-card .game-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .game-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .game-card p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+
+    .game-card .game-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 0.75rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    /* Exam area */
+    .exam-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 24px;
+    }
+
+    @media (max-width: 1000px) {
+      .exam-layout { grid-template-columns: 1fr; }
+    }
+
+    .exam-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid #ede9fe;
+    }
+
+    .exam-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--primary-soft);
+    }
+
+    .exam-header h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .timer-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-soft);
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .question {
+      margin-bottom: 28px;
+    }
+
+    .question .q-number {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .question .q-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .option {
+      display: block;
+      background: var(--bg);
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 10px;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: 0.15s;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .option:hover {
+      background: #f3f0ff;
+    }
+
+    .option.selected {
+      background: var(--primary-soft);
+      border-color: var(--primary);
+      font-weight: 600;
+    }
+
+    .exam-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .exam-nav-btn {
+      aspect-ratio: 1;
+      border-radius: 12px;
+      border: 1.5px solid #e5e7eb;
+      background: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .exam-nav-btn.answered {
+      background: var(--primary-soft);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .exam-nav-btn.current {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Praktik */
+    .praktik-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid #ede9fe;
+      margin-bottom: 24px;
+    }
+
+    .rubrik-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 0.9rem;
+    }
+
+    .rubrik-table th {
+      background: var(--primary-soft);
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .rubrik-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #f3f0fa;
+      vertical-align: top;
+    }
+
+    .rubrik-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .score-badge {
+      display: inline-block;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border-radius: 100px;
+      padding: 2px 12px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    /* Dashboard Guru */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      margin-bottom: 28px;
+    }
+
+    .dash-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid #ede9fe;
+    }
+
+    .dash-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--dark);
+    }
+
+    .dash-card h4 i {
+      color: var(--primary);
+    }
+
+    .student-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #f3f0fa;
+      font-size: 0.9rem;
+    }
+
+    .student-row:last-child {
+      border-bottom: none;
+    }
+
+    .student-row .name {
+      font-weight: 600;
+    }
+
+    .student-row .score {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: #ede9fe;
+      border-radius: 100px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 100px;
+    }
+
+    /* Smart TV Fullscreen hint */
+    .tv-hint {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--gray);
+      background: var(--card);
+      padding: 8px 18px;
+      border-radius: 100px;
+      border: 1px solid #ede9fe;
+      font-weight: 500;
+    }
+
+    .tv-hint i {
+      color: var(--primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .app { padding: 10px 12px 30px; }
+      .hero-card { padding: 24px 20px; }
+      .hero-card h2 { font-size: 1.5rem; }
+      .top-bar { padding: 12px 16px; }
+      .logo-text h1 { font-size: 1.2rem; }
+      .logo-icon { width: 42px; height: 42px; font-size: 20px; }
+      .exam-card { padding: 18px 16px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (min-width: 1400px) {
+      .logo-text h1 { font-size: 1.8rem; }
+      .hero-card h2 { font-size: 2.4rem; }
+      .section-title { font-size: 1.8rem; }
+    }
+
+    /* Tooltip / Toast */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--dark);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- ===== TOP BAR ===== -->
+    <header class="top-bar">
+      <div class="logo">
+        <div class="logo-icon"><i class="fas fa-music"></i></div>
+        <div class="logo-text">
+          <h1>SMART MUSIC CLASS</h1>
+          <span>LEARN · PLAY · CREATE · PERFORM</span>
+        </div>
+      </div>
+      <nav class="nav-tabs" id="navTabs">
+        <button class="nav-tab active" data-section="home"><i class="fas fa-home"></i> Home</button>
+        <button class="nav-tab" data-section="learn"><i class="fas fa-book-open"></i> Learn</button>
+        <button class="nav-tab" data-section="games"><i class="fas fa-gamepad"></i> Games</button>
+        <button class="nav-tab" data-section="exam"><i class="fas fa-pen"></i> Ujian</button>
+        <button class="nav-tab" data-section="practice"><i class="fas fa-microphone"></i> Praktik</button>
+        <button class="nav-tab" data-section="dashboard"><i class="fas fa-chart-simple"></i> Guru</button>
+      </nav>
+      <div class="user-badge">
+        <i class="fas fa-user-graduate"></i> Siswa · Kelas X
+      </div>
+    </header>
+
+    <!-- ===== HOME ===== -->
+    <section id="section-home" class="section active">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h2>Selamat datang di Smart Music Class! 🎵</h2>
+          <p>Platform pembelajaran dan simulasi ujian Seni Musik tingkat SMA berbasis AI, PID, dan Smart TV. Belajar, bermain, berkarya, dan tampil dalam satu tempat.</p>
+          <div class="btn-group">
+            <button class="btn btn-primary" onclick="switchSection('learn')"><i class="fas fa-play"></i> Mulai Belajar</button>
+            <button class="btn btn-outline-light" onclick="switchSection('games')"><i class="fas fa-dice"></i> Main Game</button>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-book"></i></div>
+            <div class="stat-label">Materi Tersedia</div>
+            <div class="stat-value">14</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-gamepad"></i></div>
+            <div class="stat-label">Game Edukasi</div>
+            <div class="stat-value">7</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-pen"></i></div>
+            <div class="stat-label">Soal Ujian</div>
+            <div class="stat-value">120+</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-star"></i></div>
+            <div class="stat-label">Skor Tertinggi</div>
+            <div class="stat-value">98</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="fas fa-compass"></i> Jelajahi Fitur Utama</div>
+      <div class="modul-grid">
+        <div class="modul-card" onclick="switchSection('learn')">
+          <div class="modul-icon bg-purple"><i class="fas fa-book-open"></i></div>
+          <h3>LEARN</h3>
+          <p>Materi interaktif unsur musik, notasi, tangga nada, alat musik, dan apresiasi.</p>
+          <span class="modul-badge">14 Materi</span>
+        </div>
+        <div class="modul-card" onclick="switchSection('games')">
+          <div class="modul-icon bg-pink"><i class="fas fa-gamepad"></i></div>
+          <h3>PLAY</h3>
+          <p>7 game edukatif: tebak suara, kuis, rhythm challenge, music puzzle, dan lainnya.</p>
+          <span class="modul-badge">7 Game</span>
+        </div>
+        <div class="modul-card" onclick="switchSection('practice')">
+          <div class="modul-icon bg-teal"><i class="fas fa-microphone"></i></div>
+          <h3>CREATE & PERFORM</h3>
+          <p>Simulasi ujian praktik vokal, instrumen, ritme, ansambel, dan kreativitas.</p>
+          <span class="modul-badge">5 Jenis Ujian</span>
+        </div>
+        <div class="modul-card" onclick="switchSection('exam')">
+          <div class="modul-icon bg-amber"><i class="fas fa-pen"></i></div>
+          <h3>UJIAN TERTULIS</h3>
+          <p>Simulasi ujian dengan pilihan ganda, esai, menjodohkan, dan analisis musik.</p>
+          <span class="modul-badge">9 Tipe Soal</span>
+        </div>
+      </div>
+
+      <div class="section-title"><i class="fas fa-tv"></i> Tampilan Smart TV</div>
+      <div class="dash-card" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+        <div>
+          <h4><i class="fas fa-tv"></i> Mode Kelas Interaktif</h4>
+          <p style="font-size:0.9rem; color:var(--gray);">Tampilkan kuis, game, dan materi ke Smart TV. Siswa dapat menjawab via smartphone menggunakan kode kelas.</p>
+        </div>
+        <button class="btn btn-primary-solid" onclick="showToast('Mode Smart TV diaktifkan! Tampilkan ke layar besar.')"><i class="fas fa-expand"></i> Aktifkan Mode TV</button>
+      </div>
+    </section>
+
+    <!-- ===== LEARN ===== -->
+    <section id="section-learn" class="section">
+      <div class="section-title"><i class="fas fa-book-open"></i> Ruang Pembelajaran Interaktif</div>
+      <div class="modul-grid">
+        <div class="modul-card" onclick="showToast('Materi: Pengenalan Unsur Musik — Melodi, Ritme, Harmoni, Tempo, Dinamika, Timbre.')">
+          <div class="modul-icon bg-purple"><i class="fas fa-music"></i></div>
+          <h3>Unsur-unsur Musik</h3>
+          <p>Melodi, ritme, harmoni, tempo, dinamika, dan timbre.</p>
+          <span class="modul-badge">Kelas X</span>
+        </div>
+        <div class="modul-card" onclick="showToast('Materi: Notasi Balok dan Notasi Angka — membaca dan menulis notasi.')">
+          <div class="modul-icon bg-pink"><i class="fas fa-scroll"></i></div>
+          <h3>Notasi Balok & Angka</h3>
+          <p>Membaca dan menulis notasi musik dengan benar.</p>
+          <span class="modul-badge">Kelas X</span>
+        </div>
+        <div class="modul-card" onclick="showToast('Materi: Tangga Nada Mayor dan Minor — interval dan akor dasar.')">
+          <div class="modul-icon bg-blue"><i class="fas fa-chart-simple"></i></div>
+          <h3>Tangga Nada & Akor</h3>
+          <p>Mayor, minor, interval, dan progresi akor.</p>
+          <span class="modul-badge">Kelas X</span>
+        </div>
+        <div class="modul-card" onclick="showToast('Materi: Teknik Vokal dan Pernapasan — latihan dasar menyanyi.')">
+          <div class="modul-icon bg-teal"><i class="fas fa-microphone"></i></div>
+          <h3>Teknik Vokal</h3>
+          <p>Pernapasan, artikulasi, intonasi, dan frasering.</p>
+          <span class="modul-badge">Kelas XI</span>
+        </div>
+        <div class="modul-card" onclick="showToast('Materi: Alat Musik Tradisional Indonesia — angklung, gamelan, sasando, dll.')">
+          <div class="modul-icon bg-amber"><i class="fas fa-drum"></i></div>
+          <h3>Alat Musik Tradisional</h3>
+          <p>Angklung, gamelan, sasando, kolintang, dan lainnya.</p>
+          <span class="modul-badge">Kelas XI</span>
+        </div>
+        <div class="modul-card" onclick="showToast('Materi: Alat Musik Modern — gitar, keyboard, drum, bass, dan teknologi musik.')">
+          <div class="modul-icon bg-indigo"><i class="fas fa-guitar"></i></div>
+          <h3>Alat Musik Modern</h3>
+          <p>Gitar, keyboard, drum, bass, dan perangkat digital.</p>
+          <span class="modul-badge">Kelas XI</span>
+        </div>
+        <div class="modul-card" onclick="showToast('Materi: Genre Musik dan Perkembangannya — dari tradisional hingga populer.')">
+          <div class="modul-icon bg-rose"><i class="fas fa-list"></i></div>
+          <h3>Genre Musik</h3>
+          <p>Musik tradisional, klasik, jazz, pop, rock, dan EDM.</p>
+          <span class="modul-badge">Kelas XII</span>
+        </div>
+        <div class="modul-card" onclick="showToast('Materi: Aransemen dan Komposisi Musik — menciptakan dan mengaransemen lagu.')">
+          <div class="modul-icon bg-purple"><i class="fas fa-pen-fancy"></i></div>
+          <h3>Aransemen & Komposisi</h3>
+          <p>Menciptakan melodi, lirik, dan aransemen sederhana.</p>
+          <span class="modul-badge">Kelas XII</span>
+        </div>
+        <div class="modul-card" onclick="showToast('Materi: Produksi Musik Digital — DAW, mixing, dan recording.')">
+          <div class="modul-icon bg-blue"><i class="fas fa-laptop-code"></i></div>
+          <h3>Produksi Musik Digital</h3>
+          <p>DAW, mixing, editing, dan distribusi musik.</p>
+          <span class="modul-badge">Kelas XII</span>
+        </div>
+        <div class="modul-card" onclick="showToast('Materi: Apresiasi dan Analisis Karya Musik — kritik dan penilaian objektif.')">
+          <div class="modul-icon bg-teal"><i class="fas fa-star"></i></div>
+          <h3>Apresiasi & Analisis</h3>
+          <p>Menganalisis pesan, makna, dan nilai budaya dalam musik.</p>
+          <span class="modul-badge">Kelas XII</span>
+        </div>
+      </div>
+
+      <!-- Contoh kuis interaktif -->
+      <div class="dash-card" style="margin-top: 8px;">
+        <h4><i class="fas fa-question-circle"></i> Kuis Interaktif: Unsur Musik</h4>
+        <div class="question" style="margin-bottom: 8px;">
+          <div class="q-text" style="font-size:1rem;">Apa nama unsur musik yang berkaitan dengan tinggi rendahnya nada?</div>
+          <div class="option" onclick="selectOption(this)">A. Ritme</div>
+          <div class="option" onclick="selectOption(this)">B. Melodi</div>
+          <div class="option" onclick="selectOption(this)">C. Harmoni</div>
+          <div class="option" onclick="selectOption(this)">D. Tempo</div>
+        </div>
+        <button class="btn btn-primary-solid btn-sm" onclick="showToast('Jawaban terkirim! Cek pembahasan di kelas.')"><i class="fas fa-paper-plane"></i> Kirim Jawaban</button>
+      </div>
+    </section>
+
+    <!-- ===== GAMES ===== -->
+    <section id="section-games" class="section">
+      <div class="section-title"><i class="fas fa-gamepad"></i> Game Edukasi Musik</div>
+      <div class="game-grid">
+        <div class="game-card" onclick="showToast('Game: Tebak Suara Alat Musik — putar audio, tebak instrumen!')">
+          <div class="game-icon">🎵</div>
+          <h4>Tebak Suara Alat Musik</h4>
+          <p>Dengarkan suara dan tebak nama instrumennya.</p>
+          <div class="game-meta"><span><i class="fas fa-signal"></i> Level 1-3</span><span><i class="fas fa-star"></i> 10 soal</span></div>
+        </div>
+        <div class="game-card" onclick="showToast('Game: Music Quiz Challenge — kuis pilihan ganda teori musik!')">
+          <div class="game-icon">❓</div>
+          <h4>Music Quiz Challenge</h4>
+          <p>Pertanyaan pilihan ganda tentang teori dan pengetahuan musik.</p>
+          <div class="game-meta"><span><i class="fas fa-signal"></i> Level 1-5</span><span><i class="fas fa-star"></i> 20 soal</span></div>
+        </div>
+        <div class="game-card" onclick="showToast('Game: Tebak Lagu — identifikasi judul, genre, atau unsur musik!')">
+          <div class="game-icon">🎧</div>
+          <h4>Tebak Lagu</h4>
+          <p>Dengarkan potongan audio dan identifikasi judul/genre.</p>
+          <div class="game-meta"><span><i class="fas fa-signal"></i> Level 1-3</span><span><i class="fas fa-star"></i> 15 soal</span></div>
+        </div>
+        <div class="game-card" onclick="showToast('Game: Rhythm Challenge — tirukan pola ritme dengan tepukan!')">
+          <div class="game-icon">🥁</div>
+          <h4>Rhythm Challenge</h4>
+          <p>Tirukan pola ritme yang ditampilkan di layar.</p>
+          <div class="game-meta"><span><i class="fas fa-signal"></i> Level 1-4</span><span><i class="fas fa-star"></i> 12 pola</span></div>
+        </div>
+        <div class="game-card" onclick="showToast('Game: Music Puzzle — susun notasi, tangga nada, dan simbol musik!')">
+          <div class="game-icon">🧩</div>
+          <h4>Music Puzzle</h4>
+          <p>Susun notasi, tangga nada, simbol, dan nama alat musik.</p>
+          <div class="game-meta"><span><i class="fas fa-signal"></i> Level 1-3</span><span><i class="fas fa-star"></i> 8 puzzle</span></div>
+        </div>
+        <div class="game-card" onclick="showToast('Game: Siapa Paling Cepat? — kuis cepat dengan papan peringkat!')">
+          <div class="game-icon">⚡</div>
+          <h4>Siapa Paling Cepat?</h4>
+          <p>Kuis musik dengan sistem poin dan papan peringkat kelas.</p>
+          <div class="game-meta"><span><i class="fas fa-signal"></i> Multiplayer</span><span><i class="fas fa-star"></i> Realtime</span></div>
+        </div>
+        <div class="game-card" onclick="showToast('Game: Music Detective — analisis tempo, dinamika, instrumen, dan karakter!')">
+          <div class="game-icon">🔍</div>
+          <h4>Music Detective</h4>
+          <p>Analisis karya musik: tempo, dinamika, instrumen, karakter.</p>
+          <div class="game-meta"><span><i class="fas fa-signal"></i> Level 1-3</span><span><i class="fas fa-star"></i> 10 kasus</span></div>
+        </div>
+      </div>
+      <div style="margin-top: 28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+        <div class="tv-hint"><i class="fas fa-tv"></i> Tampilkan game di Smart TV untuk bermain bersama seluruh kelas</div>
+        <button class="btn btn-primary-solid" onclick="showToast('Papan peringkat kelas ditampilkan di Smart TV!')"><i class="fas fa-ranking-star"></i> Lihat Papan Peringkat</button>
+      </div>
+    </section>
+
+    <!-- ===== EXAM ===== -->
+    <section id="section-exam" class="section">
+      <div class="section-title"><i class="fas fa-pen"></i> Simulasi Ujian Tertulis</div>
+      <div class="exam-layout">
+        <div class="exam-card">
+          <div class="exam-header">
+            <div>
+              <h3>Ujian Seni Musik · Kelas X</h3>
+              <p style="font-size:0.85rem; color:var(--gray); margin-top:4px;">Nomor Peserta: 2024-10-001 · 20 Soal</p>
+            </div>
+            <div class="timer-box"><i class="fas fa-clock"></i> 45:00</div>
+          </div>
+
+          <!-- Soal 1 -->
+          <div class="question" id="q1">
+            <div class="q-number">Soal 1 dari 20 · Pilihan Ganda</div>
+            <div class="q-text">Unsur musik yang berkaitan dengan tinggi rendahnya nada disebut...</div>
+            <div class="option" onclick="selectOption(this)" data-q="1" data-opt="A">A. Ritme</div>
+            <div class="option" onclick="selectOption(this)" data-q="1" data-opt="B">B. Melodi</div>
+            <div class="option" onclick="selectOption(this)" data-q="1" data-opt="C">C. Harmoni</div>
+            <div class="option" onclick="selectOption(this)" data-q="1" data-opt="D">D. Tempo</div>
+          </div>
+
+          <!-- Soal 2 -->
+          <div class="question" id="q2">
+            <div class="q-number">Soal 2 dari 20 · Pilihan Ganda</div>
+            <div class="q-text">Alat musik tradisional Indonesia yang dimainkan dengan cara digoyangkan adalah...</div>
+            <div class="option" onclick="selectOption(this)" data-q="2" data-opt="A">A. Gamelan</div>
+            <div class="option" onclick="selectOption(this)" data-q="2" data-opt="B">B. Angklung</div>
+            <div class="option" onclick="selectOption(this)" data-q="2" data-opt="C">C. Sasando</div>
+            <div class="option" onclick="selectOption(this)" data-q="2" data-opt="D">D. Kolintang</div>
+          </div>
+
+          <!-- Soal 3 -->
+          <div class="question" id="q3">
+            <div class="q-number">Soal 3 dari 20 · Benar / Salah</div>
+            <div class="q-text">Tangga nada mayor memiliki jarak interval 1-1-½-1-1-1-½.</div>
+            <div class="option" onclick="selectOption(this)" data-q="3" data-opt="B">B. Benar</div>
+            <div class="option" onclick="selectOption(this)" data-q="3" data-opt="S">S. Salah</div>
+          </div>
+
+          <!-- Soal 4 -->
+          <div class="question" id="q4">
+            <div class="q-number">Soal 4 dari 20 · Isian Singkat</div>
+            <div class="q-text">Alat musik modern yang memiliki 6 senar dan dimainkan dengan dipetik disebut...</div>
+            <input type="text" placeholder="Tulis jawaban..." style="width:100%; padding:14px 20px; border-radius:16px; border:1.5px solid #e5e7eb; font-family:inherit; font-size:0.95rem; margin-top:8px; background:var(--bg);">
+          </div>
+
+          <!-- Navigasi soal -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:24px; flex-wrap:wrap; gap:12px;">
+            <div style="display:flex; gap:8px;">
+              <button class="btn btn-sm" style="background:var(--bg); color:var(--dark);" onclick="showToast('Navigasi soal: mundur')"><i class="fas fa-chevron-left"></i> Sebelumnya</button>
+              <button class="btn btn-sm btn-primary-solid" onclick="showToast('Navigasi soal: maju')">Selanjutnya <i class="fas fa-chevron-right"></i></button>
+            </div>
+            <button class="btn btn-accent" onclick="showToast('Jawaban berhasil dikumpulkan! Menunggu koreksi otomatis.')"><i class="fas fa-check-circle"></i> Kumpulkan Jawaban</button>
+          </div>
+        </div>
+
+        <!-- Sidebar navigasi & status -->
+        <div>
+          <div class="exam-card" style="margin-bottom:20px;">
+            <h4 style="font-size:1rem; font-weight:700; margin-bottom:14px;"><i class="fas fa-list-ol" style="color:var(--primary);"></i> Navigasi Soal</h4>
+            <div class="exam-nav-grid">
+              <button class="exam-nav-btn current">1</button>
+              <button class="exam-nav-btn answered">2</button>
+              <button class="exam-nav-btn answered">3</button>
+              <button class="exam-nav-btn">4</button>
+              <button class="exam-nav-btn">5</button>
+              <button class="exam-nav-btn">6</button>
+              <button class="exam-nav-btn">7</button>
+              <button class="exam-nav-btn">8</button>
+              <button class="exam-nav-btn">9</button>
+              <button class="exam-nav-btn">10</button>
+              <button class="exam-nav-btn">11</button>
+              <button class="exam-nav-btn">12</button>
+              <button class="exam-nav-btn">13</button>
+              <button class="exam-nav-btn">14</button>
+              <button class="exam-nav-btn">15</button>
+              <button class="exam-nav-btn">16</button>
+              <button class="exam-nav-btn">17</button>
+              <button class="exam-nav-btn">18</button>
+              <button class="exam-nav-btn">19</button>
+              <button class="exam-nav-btn">20</button>
+            </div>
+            <div style="display:flex; gap:16px; margin-top:16px; font-size:0.75rem; color:var(--gray); flex-wrap:wrap;">
+              <span><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:var(--primary);margin-right:4px;"></span> Sedang dikerjakan</span>
+              <span><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:var(--primary-soft);border:1px solid var(--primary);margin-right:4px;"></span> Terjawab</span>
+            </div>
+          </div>
+          <div class="exam-card">
+            <h4 style="font-size:1rem; font-weight:700; margin-bottom:14px;"><i class="fas fa-info-circle" style="color:var(--primary);"></i> Petunjuk Ujian</h4>
+            <ul style="list-style:none; font-size:0.85rem; color:var(--gray);">
+              <li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--primary); margin-right:8px;"></i>Baca soal dengan teliti.</li>
+              <li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--primary); margin-right:8px;"></i>Dilarang membuka catatan.</li>
+              <li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--primary); margin-right:8px;"></i>Waktu 45 menit.</li>
+              <li style="margin-bottom:8px;"><i class="fas fa-check" style="color:var(--primary); margin-right:8px;"></i>Koreksi otomatis untuk objektif.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRACTICE ===== -->
+    <section id="section-practice" class="section">
+      <div class="section-title"><i class="fas fa-microphone"></i> Simulasi Ujian Praktik Seni Musik</div>
+
+      <div class="praktik-card">
+        <h4><i class="fas fa-user" style="color:var(--primary);"></i> A. Ujian Praktik Vokal</h4>
+        <p style="font-size:0.9rem; color:var(--gray); margin-bottom:16px;">Menyanyikan lagu nasional/daerah, lagu pilihan, teknik pernapasan, ketepatan nada, tempo, dan dinamika.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn btn-primary-solid btn-sm" onclick="showToast('Rekaman vokal dimulai...')"><i class="fas fa-microphone"></i> Mulai Rekam</button>
+          <button class="btn btn-sm" style="background:var(--bg);" onclick="showToast('Pilih lagu: Indonesia Raya / Tanah Airku / Lagu Daerah')"><i class="fas fa-music"></i> Pilih Lagu</button>
+          <span class="score-badge">Skor Sementara: 82</span>
+        </div>
+        <div style="margin-top:16px; font-size:0.85rem; color:var(--gray);"><i class="fas fa-info-circle"></i> AI menganalisis ketepatan nada & ritme. Penilaian ekspresi dikonfirmasi guru.</div>
+      </div>
+
+      <div class="praktik-card">
+        <h4><i class="fas fa-guitar" style="color:var(--primary);"></i> B. Ujian Praktik Instrumen Musik</h4>
+        <p style="font-size:0.9rem; color:var(--gray); margin-bottom:16px;">Memainkan gitar, keyboard, drum, bass, pianika, recorder, atau alat musik tradisional.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn btn-primary-solid btn-sm" onclick="showToast('Pilih instrumen: Gitar, Keyboard, Drum, Bass, Pianika, Recorder, Tradisional')"><i class="fas fa-list"></i> Pilih Instrumen</button>
+          <button class="btn btn-sm" style="background:var(--bg);" onclick="showToast('Rekaman instrumen dimulai...')"><i class="fas fa-circle"></i> Rekam Permainan</button>
+        </div>
+        <table class="rubrik-table" style="margin-top:20px;">
+          <tr><th>Aspek</th><th>Skor (1-4)</th></tr>
+          <tr><td>Ketepatan Nada</td><td><span class="score-badge">3</span> Baik</td></tr>
+          <tr><td>Ketepatan Ritme</td><td><span class="score-badge">4</span> Sangat Baik</td></tr>
+          <tr><td>Teknik Memainkan</td><td><span class="score-badge">3</span> Baik</td></tr>
+          <tr><td>Ekspresi Musikal</td><td><span class="score-badge">3</span> Baik</td></tr>
+        </table>
+      </div>
+
+      <div class="praktik-card">
+        <h4><i class="fas fa-drum" style="color:var(--primary);"></i> C. Ujian Praktik Ritme</h4>
+        <p style="font-size:0.9rem; color:var(--gray); margin-bottom:16px;">Tampilkan pola ritme di Smart TV. Siswa menirukan dengan tepukan tangan, ketukan meja, atau perkusi.</p>
+        <div style="background:var(--bg); border-radius:16px; padding:20px; text-align:center; font-size:1.4rem; letter-spacing:8px; font-weight:700; color:var(--primary); margin-bottom:12px;">
+          ♩ ♩ ♪ ♩ | ♪ ♪ ♩ ♩
+        </div>
+        <button class="btn btn-primary-solid btn-sm" onclick="showToast('Pola ritme diputar. Tirukan sekarang!')"><i class="fas fa-play"></i> Putar Pola Ritme</button>
+      </div>
+
+      <div class="praktik-card">
+        <h4><i class="fas fa-users" style="color:var(--primary);"></i> D. Ujian Praktik Ansambel & E. Kreativitas</h4>
+        <p style="font-size:0.9rem; color:var(--gray); margin-bottom:16px;">Kelompok menampilkan lagu bersama. Penilaian: kekompakan, kerja sama, keseimbangan suara, penguasaan instrumen, penampilan, kreativitas.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn btn-primary-solid btn-sm" onclick="showToast('Formasi kelompok berhasil dibuat!')"><i class="fas fa-plus"></i> Bentuk Kelompok</button>
+          <button class="btn btn-sm" style="background:var(--bg);" onclick="showToast('Lembar observasi guru terbuka.')"><i class="fas fa-clipboard"></i> Lembar Observasi</button>
+        </div>
+        <div style="margin-top:16px; padding:16px; background:var(--bg); border-radius:16px; font-size:0.9rem;">
+          <strong><i class="fas fa-lightbulb" style="color:var(--amber);"></i> Tantangan Kreativitas:</strong> Ciptakan melodi sederhana 4 bar, pola ritme, atau aransemen lagu daerah dengan gaya modern.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DASHBOARD GURU ===== -->
+    <section id="section-dashboard" class="section">
+      <div class="section-title"><i class="fas fa-chart-simple"></i> Dashboard Guru</div>
+      <div class="dashboard-grid">
+        <div class="dash-card">
+          <h4><i class="fas fa-users"></i> Rekap Kelas X</h4>
+          <div class="student-row"><span class="name">Andi Pratama</span><span class="score">88</span></div>
+          <div class="student-row"><span class="name">Bunga Lestari</span><span class="score">92</span></div>
+          <div class="student-row"><span class="name">Citra Dewi</span><span class="score">85</span></div>
+          <div class="student-row"><span class="name">Dimas Saputra</span><span class="score">78</span></div>
+          <div class="student-row"><span class="name">Eka Putri</span><span class="score">95</span></div>
+          <div style="margin-top:12px; font-size:0.85rem; color:var(--gray);">Rata-rata kelas: <strong>87.6</strong></div>
+        </div>
+        <div class="dash-card">
+          <h4><i class="fas fa-chart-line"></i> Statistik Capaian</h4>
+          <div style="margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:4px;"><span>Teori Musik</span><span>85%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:85%;"></div></div>
+          </div>
+          <div style="margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:4px;"><span>Praktik Instrumen</span><span>78%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:78%;"></div></div>
+          </div>
+          <div style="margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:4px;"><span>Praktik Vokal</span><span>82%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:82%;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:4px;"><span>Kreativitas</span><span>90%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:90%;"></div></div>
+          </div>
+        </div>
+        <div class="dash-card">
+          <h4><i class="fas fa-gear"></i> Pengaturan Cepat</h4>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <button class="btn btn-sm btn-primary-solid" style="width:100%;" onclick="showToast('Buat kelas baru')"><i class="fas fa-plus"></i> Buat Kelas</button>
+            <button class="btn btn-sm" style="background:var(--bg); width:100%;" onclick="showToast('Edit soal ujian')"><i class="fas fa-pen"></i> Edit Soal</button>
+            <button class="btn btn-sm" style="background:var(--bg); width:100%;" onclick="showToast('Atur durasi ujian')"><i class="fas fa-clock"></i> Atur Durasi</button>
+            <button class="btn btn-sm" style="background:var(--bg); width:100%;" onclick="showToast('Unduh rekap nilai (Excel/CSV)')"><i class="fas fa-download"></i> Unduh Rekap</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <h4><i class="fas fa-clipboard-check"></i> Penilaian Praktik (Rubrik 1-4)</h4>
+        <table class="rubrik-table">
+          <thead><tr><th>Nama Siswa</th><th>Vokal</th><th>Instrumen</th><th>Ritme</th><th>Ansambel</th><th>Kreativitas</th><th>Rata-rata</th></tr></thead>
+          <tbody>
+            <tr><td>Andi Pratama</td><td>3</td><td>4</td><td>3</td><td>3</td><td>3</td><td><strong>3.2</strong></td></tr>
+            <tr><td>Bunga Lestari</td><td>4</td><td>3</td><td>4</td><td>4</td><td>4</td><td><strong>3.8</strong></td></tr>
+            <tr><td>Citra Dewi</td><td>3</td><td>3</td><td>3</td><td>3</td><td>4</td><td><strong>3.2</strong></td></tr>
+            <tr><td>Dimas Saputra</td><td>2</td><td>3</td><td>2</td><td>3</td><td>3</td><td><strong>2.6</strong></td></tr>
+            <tr><td>Eka Putri</td><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td><td><strong>4.0</strong></td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn btn-primary-solid btn-sm" onclick="showToast('Rekap nilai berhasil diunduh (simulasi).')"><i class="fas fa-file-excel"></i> Unduh Excel</button>
+          <button class="btn btn-sm" style="background:var(--bg);" onclick="showToast('Analisis hasil belajar ditampilkan.')"><i class="fas fa-chart-pie"></i> Lihat Analisis</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script>
+    // ===== NAVIGASI SECTION =====
+    function switchSection(sectionId) {
+      // Sembunyikan semua section
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      // Tampilkan target
+      const target = document.getElementById('section-' + sectionId);
+      if (target) target.classList.add('active');
+
+      // Update tab aktif
+      document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+      const activeTab = document.querySelector(`.nav-tab[data-section="${sectionId}"]`);
+      if (activeTab) activeTab.classList.add('active');
+
+      // Scroll ke atas
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Event listener untuk nav tab
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        const section = this.dataset.section;
+        switchSection(section);
+      });
+    });
+
+    // ===== PILIH OPSI (untuk kuis & ujian) =====
+    function selectOption(element) {
+      // Hapus selected dari sibling dalam grup yang sama
+      const parent = element.closest('.question');
+      if (parent) {
+        parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+      }
+      element.classList.add('selected');
+
+      // Tandai navigasi soal (jika ada)
+      const qNum = element.dataset.q;
+      if (qNum) {
+        const navBtn = document.querySelectorAll('.exam-nav-btn')[parseInt(qNum) - 1];
+        if (navBtn) {
+          navBtn.classList.add('answered');
+        }
+      }
+    }
+
+    // ===== TOAST =====
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // ===== TIMER UJIAN (simulasi) =====
+    let examTime = 45 * 60; // 45 menit dalam detik
+    function updateTimer() {
+      const timerEl = document.querySelector('.timer-box');
+      if (!timerEl) return;
+      const minutes = Math.floor(examTime / 60);
+      const seconds = examTime % 60;
+      timerEl.innerHTML = `<i class="fas fa-clock"></i> ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      if (examTime > 0) {
+        examTime--;
+      } else {
+        timerEl.innerHTML = `<i class="fas fa-clock"></i> Waktu Habis`;
+      }
+    }
+    setInterval(updateTimer, 1000);
+
+    // ===== LOGIN SIMULASI / PID HINT =====
+    console.log('Smart Music Class — Platform siap. Integrasi PID menggunakan simulasi login (data contoh).');
+
+    // ===== FULLSCREEN MODE (Smart TV) =====
+    function enterFullscreen() {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      }
+    }
+
+    // Tambah tombol fullscreen di pojok (opsional)
+    // Dijalankan saat pertama kali klik di mana saja? Tidak, biarkan manual.
+
+    // ===== INIT =====
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set default active
+      switchSection('home');
+    });
+  </script>
+</body>
+</html>
